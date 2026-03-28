@@ -1,0 +1,181 @@
+:root {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --box: #1e1e1e;
+    --border: #2a2a2a;
+    --btn-bg: #2c2c2c;
+    --btn-text: #ffffff;
+}
+
+body {
+    background: linear-gradient(135deg, #2c2c2c, #000000);
+    color: var(--text);
+    margin: 200px auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+.header p {
+    font-size: 20px;
+}
+
+.box {
+    background-color: var(--box);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+    width: 800px;
+    border-radius: 18px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+button {
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 18px;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button.success {
+    background-color: #22c55e;
+    color: var(--btn-text);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.success:hover {
+    background-color: #16a34a;
+}
+
+button.error {
+    background-color: #ef4444;
+    color: var(--btn-text);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.error:hover {
+    background-color: #dc2626;
+}
+
+button.infor {
+    background-color: #3b82f6;
+    color: var(--btn-text);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.infor:hover {
+    background-color: #2563eb;
+}
+
+button.warning {
+    background-color: #f59e0b;
+    color: var(--btn-text);
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.warning:hover {
+    background-color: #d97706;
+}
+
+#toast-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.toast {
+    width: 400px;
+    padding: 20px;
+    animation: fadeInRight 0.4s ease forwards;
+    position: relative;
+}
+
+.toast::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: #ffffff;
+    animation: anim 4s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        width: 0;
+    }
+}
+
+.toast.hide {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.toast.success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ecfdf5;
+}
+
+.toast.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fef2f2;
+}
+
+.toast.warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fffbeb;
+}
+
+.toast.info {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #eff6ff;
+}
